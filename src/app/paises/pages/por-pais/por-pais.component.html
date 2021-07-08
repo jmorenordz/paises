@@ -5,7 +5,10 @@
 <div class="row">
     <div class="col">
         
-        <app-input-pais (onEnter)='buscar( $event )'
+        <app-input-pais 
+        (onEnter)='buscar( $event )'
+        (onDebounce)='sugerencias($event)'
+        placeholder = "Buscar Pais"        
         >
         </app-input-pais>
       

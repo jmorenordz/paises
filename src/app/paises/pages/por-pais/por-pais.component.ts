@@ -10,7 +10,7 @@ import { Pais } from '../../interfaces/psis.interface';
 })
 export class PorPaisComponent {
 
-  termino:string="";
+  termino:string="";  
   hayError:boolean=false;
   paises:Pais[]=[];
 
@@ -30,6 +30,21 @@ export class PorPaisComponent {
         this.hayError = true;
         this.paises = [];
       })
+  }
+
+  sugerencias(termino:string){
+    this.hayError = false;
+    this.termino = termino;
+    this.paisService.buscarPais(this.termino)
+    .subscribe((paises)=>{
+      this.paises = paises;
+    },(err)=>{
+      this.hayError = true;
+      this.paises = [];
+
+    }
+    
+    )
   }
 
   

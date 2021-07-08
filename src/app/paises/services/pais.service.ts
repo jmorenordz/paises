@@ -19,4 +19,15 @@ export class PaisService {
 
   }  
 
+
+
+  //https://restcountries.eu/rest/v2/capital/{capital}
+
+  buscarCapital(termino:string):Observable<Pais[]>{
+    const url = `${this.apiUrl}/capital/${termino}`;
+    return this.http.get<Pais[]>(url);
+
+
+  }
+
 }
